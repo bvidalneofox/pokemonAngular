@@ -1,0 +1,73 @@
+<div class="text-center mt-4">
+    <div *ngIf="!pokemonSalvaje">
+        <h1>Investigando la zona salvaje <i class="fa fa-spin fa-spinner"></i></h1>
+    </div>
+
+    <div *ngIf="pokemonSalvaje">
+        <h1>¡{{pokemonSalvaje.name | titlecase}} salvaje ha aparecido!</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="alert alert-info animate__animated animate__backInDown" [hidden]="!verDatos">
+                    <p>
+                        <b>Nombre: </b>{{pokemonSalvaje.name | titlecase}}
+                    </p>
+                    <p>
+                        <b>Tipo: </b><span *ngFor="let itemTipo of pokemonSalvaje.types">{{ itemTipo.type.name | titlecase}} </span>
+                    </p>
+                    <p>
+                        <b>Peso: </b> {{pokemonSalvaje.weight}}Kg.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="caja">
+                    <img *ngIf="!capturaStatus" class="animate__animated animate__bounce mt-5"
+                        [src]="pokemonSalvaje.sprites.front_default" width="50%">
+                    <img *ngIf="capturaStatus" src="assets/pokeballCapture.gif" width="10%" style="margin-top: 140px" class="animate__animated animate__rotateInDownLeft">
+                </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <div class="card bg-danger cursor animate__animated animate__bounceInLeft" (click)="verDatos = !verDatos">
+                    <div class="card-body text-center">
+                        <h1>Ver Datos</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-danger cursor animate__animated animate__bounceInRight" (click)="capturarPokemon()">
+                    <div class="card-body text-center">
+                        <h1>Lanzar Pokéball</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <div class="card bg-danger cursor animate__animated animate__bounceInLeft">
+                    <div class="card-body text-center">
+                        <h1>Destruir</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-danger cursor animate__animated animate__bounceInRight" (click)="escapar()">
+                    <div class="card-body text-center">
+                        <h1>Escapar</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<audio id="musica">
+    <source
+        src="https://vgmdownloads.com/soundtracks/pokemon-gameboy-sound-collection/gbhogmtx/107-battle%20%28vs%20wild%20pokemon%29.mp3">
+</audio>

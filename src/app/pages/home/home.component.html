@@ -1,0 +1,53 @@
+<div *ngIf="nombreEntrenador.length == 0">
+<div class="row mt-4 animate__animated animate__fadeIn">
+    <div class="col-12">
+        <p class="h3">Bienvenido a un mundo asombroso donde podrás hacerte amigo de unas criaturas llamadas pokemon, unos los usan para combatir y crecer juntos. Antes de comenzar tu aventura necesito que me digas tu nombre</p>
+    </div>
+</div>
+
+<div class="row animate__animated animate__fadeIn">
+    <div class="col-12">
+        <div class="form-group">
+            <label><b>Ingresa tu nombre:</b></label>
+            <input #nombre type="text" class="form-control">
+        </div>
+    </div>
+    <button class="btn btn-block btn-outline-primary" (click)="setNombre(nombre)">Ingresar</button>
+</div>
+</div>
+
+<div class="mt-5" *ngIf="nombreEntrenador.length != 0">
+    <h1>Bienvenido {{nombreEntrenador}}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card bg-danger cursor" [routerLink]="['/listaCapturas']">
+                <div class="card-body text-center">
+                    <h1>Ver mis capturas</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-danger cursor" [routerLink]="['/zonaSalvaje']">
+                <div class="card-body text-center">
+                    <h1>Zona Salvaje</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-6">
+            <div class="card bg-danger cursor" [routerLink]="['/equipo']">
+                <div class="card-body text-center">
+                    <h1>Mi Equipo Pokémon</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card bg-danger cursor">
+                <div class="card-body text-center">
+                    <h1>Placeholder</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

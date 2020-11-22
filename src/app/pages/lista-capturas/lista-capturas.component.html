@@ -1,0 +1,13 @@
+<div class="row mt-4">
+    <div class="col-12">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let itemCapturas of listaCapturas">
+                <div class="row">
+                    <div class="col-md-4"><img [src]="itemCapturas.sprites.front_default" class="w-5"></div>
+                    <div class="col-md-4"><h1>{{itemCapturas.name}}</h1></div>
+                    <div class="col-md-4"><b>Capturado el:</b> {{fecha}}</div>
+                </div>
+            </li>
+          </ul>
+    </div>
+</div>
